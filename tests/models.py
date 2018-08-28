@@ -12,8 +12,13 @@ class CommonInfo(models.Model):
 class Teacher(CommonInfo):
     subject = models.CharField(max_length=50)
 
+class Quiz(models.Model):
+    title = models.CharField(max_length=100)
+    teacher = models.ForeignKey(Teacher,on_delete=models.CASCADE)
+
 class Student(CommonInfo):
     avg_mark = models.PositiveSmallIntegerField(validators=[MaxValueValidator])
+    quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE)
 
 class Class(models.Model):
     teacher = models.OneToOneField(Teacher, on_delete=models.CASCADE)
@@ -25,9 +30,7 @@ class Image(models.Model):
     image = models.ImageField()
     alt_text = models.CharField(max_length=100)
 
-class Quiz(models.Model):
-    title = models.CharField(max_length=100)
-    teacher = models.ForeignKey(Teacher,on_delete=models.CASCADE)
+
 
 class Question(models.Model):
     title = models.CharField(max_length=100)
