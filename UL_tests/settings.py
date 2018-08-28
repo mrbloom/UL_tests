@@ -123,3 +123,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 PHONENUMBER_DEFAULT_REGION = 'UA'
+
+# MEDIA_ROOT = "upload/images"

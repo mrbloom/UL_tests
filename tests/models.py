@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxValueValidator
 
 from phonenumber_field.modelfields import PhoneNumberField
 
@@ -12,7 +13,7 @@ class Teacher(CommonInfo):
     subject = models.CharField(max_length=50)
 
 class Student(CommonInfo):
-    avg_mark = models.PositiveSmallIntegerField()
+    avg_mark = models.PositiveSmallIntegerField(validators=[MaxValueValidator])
 
 class Class(models.Model):
     teacher = models.OneToOneField(Teacher, on_delete=models.CASCADE)
