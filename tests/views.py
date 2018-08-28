@@ -3,5 +3,8 @@ from django.http import HttpResponse
 
 
 def index(request):
-    # return render(request,'index.html',context={'hello':'world'})
-    return HttpResponse("out")
+    data = {'hello': 'world',
+            'title': 'My Univer',
+            'text': 'variable text value'}
+    return render(request, 'tests/index.html', data)
+    # return HttpResponse("out")

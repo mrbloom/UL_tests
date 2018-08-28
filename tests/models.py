@@ -18,7 +18,7 @@ class Quiz(models.Model):
 
 class Student(CommonInfo):
     avg_mark = models.PositiveSmallIntegerField(validators=[MaxValueValidator])
-    quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE)
+    # quiz = models.ForeignKey(Quiz,on_delete=models.CASCADE)
 
 class Class(models.Model):
     teacher = models.OneToOneField(Teacher, on_delete=models.CASCADE)
